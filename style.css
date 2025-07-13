@@ -45,6 +45,20 @@ h1:hover {
     text-shadow: 0 0 5px #ffe76677;
     
 }
+p, .intro-coraline {
+    font-family: 'IM Fell English SC', 'Indie Flower', cursive;
+    letter-spacing: 2px;
+    color: #ecd7fb;
+    text-shadow: 2px 2px 6px #4d3456aa;
+    transition:  color 1.5s;
+}
+
+p:hover {
+    
+    color: #ffe766;
+    text-shadow: 0 0 5px #ffe76677;
+    
+}
 nav {
     text-align: center;
     background: #23213a88;
