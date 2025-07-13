@@ -6,6 +6,12 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     min-height: 100vh;
+    margin-left: 60px;
+    transition: margin-left 0.3s;
+}
+
+body.sidebar-expanded {
+    margin-left: 180px;
 }
 header {
     text-align: center;
@@ -63,6 +69,59 @@ nav a::after {
 }
 nav a:hover::after, nav a.active::after {
     width: 50%;
+}
+
+/* Barra lateral con iconos */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 60px;
+    background: #23213a88;
+    border-right: 2px dotted #7a5dcf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    gap: 10px;
+    transition: width 0.3s;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.sidebar.expanded {
+    width: 180px;
+}
+
+.sidebar a {
+    width: 100%;
+    color: #b7a7ff;
+    text-decoration: none;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: #6045d3;
+    color: #ffe766;
+}
+
+.sidebar span {
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sidebar.expanded span {
+    opacity: 1;
 }
 .slider-coraline {
     position: relative;
