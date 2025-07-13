@@ -66,13 +66,13 @@ nav a:hover::after, nav a.active::after {
 }
 .slider-coraline {
     position: relative;
-    width: 80vw;
-    max-width: 600px;
+    width: 90vw;
+    max-width: 900px;
     margin: 0 auto 40px auto;
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 0 30px #3c2b70aa;
-    min-height: 310px;
+    min-height: 400px;
 }
 .slide {
     display: none;
@@ -90,6 +90,8 @@ nav a:hover::after, nav a.active::after {
 }
 .slide img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 20px;
     display: block;
 }
