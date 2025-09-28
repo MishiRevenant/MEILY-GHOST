@@ -4,15 +4,12 @@ body {
     background: radial-gradient(ellipse at top, #23253b 60%, #131224 100%);
     color: #e3e3e3;
     font-family: 'Poppins', sans-serif;
-    margin: 0;
+    margin: 0 0 0 60px;
     min-height: 100vh;
-    margin-left: 60px;
     transition: margin-left 0.3s;
 }
+body.sidebar-expanded { margin-left: 180px; }
 
-body.sidebar-expanded {
-    margin-left: 180px;
-}
 header {
     text-align: center;
     padding: 30px 0 10px 0;
@@ -28,37 +25,24 @@ header img {
     animation: coraline-glow 2.5s ease-in-out infinite alternate;
 }
 @keyframes coraline-glow {
-    0% { box-shadow: 0 0 20px #785ae099;}
-    100% { box-shadow: 0 0 40px #8a6af3ff;}
+    from { box-shadow: 0 0 20px #785ae099; }
+    to { box-shadow: 0 0 40px #8a6af3ff; }
 }
-h1, .intro-coraline {
+
+/* --- OPTIMIZACIÓN: Se unieron h1, p y .intro-coraline --- */
+h1, p, .intro-coraline {
     font-family: 'IM Fell English SC', 'Indie Flower', cursive;
     letter-spacing: 2px;
     color: #ecd7fb;
     text-shadow: 2px 2px 6px #4d3456aa;
-    transition:  color 1.5s;
+    transition: color 1.5s;
 }
-
-h1:hover {
-    
+h1:hover, p:hover {
     color: #ffe766;
     text-shadow: 0 0 5px #ffe76677;
-    
 }
-p, .intro-coraline {
-    font-family: 'IM Fell English SC', 'Indie Flower', cursive;
-    letter-spacing: 2px;
-    color: #ecd7fb;
-    text-shadow: 2px 2px 6px #4d3456aa;
-    transition:  color 1.5s;
-}
+/* --- FIN DE OPTIMIZACIÓN --- */
 
-p:hover {
-    
-    color: #ffe766;
-    text-shadow: 0 0 5px #ffe76677;
-    
-}
 nav {
     text-align: center;
     background: #23213a88;
@@ -89,11 +73,8 @@ nav a::after {
     background: #ffe766;
     transition: width 0.3s;
 }
-nav a:hover::after, nav a.active::after {
-    width: 50%;
-}
+nav a:hover::after, nav a.active::after { width: 50%; }
 
-/* Barra lateral con iconos */
 .sidebar {
     position: fixed;
     top: 0;
@@ -111,11 +92,7 @@ nav a:hover::after, nav a.active::after {
     overflow: hidden;
     z-index: 1000;
 }
-
-.sidebar.expanded {
-    width: 180px;
-}
-
+.sidebar.expanded { width: 180px; }
 .sidebar a {
     width: 100%;
     color: #b7a7ff;
@@ -129,22 +106,17 @@ nav a:hover::after, nav a.active::after {
     box-sizing: border-box;
     transition: background 0.2s, color 0.2s;
 }
-
-.sidebar a:hover,
-.sidebar a.active {
+.sidebar a:hover, .sidebar a.active {
     background: #6045d3;
     color: #ffe766;
 }
-
 .sidebar span {
     white-space: nowrap;
     opacity: 0;
     transition: opacity 0.3s;
 }
+.sidebar.expanded span { opacity: 1; }
 
-.sidebar.expanded span {
-    opacity: 1;
-}
 .slider-coraline {
     position: relative;
     width: 90vw;
@@ -289,9 +261,7 @@ nav a:hover::after, nav a.active::after {
     margin: 0 auto;
     max-width: 600px;
 }
-.share-section span {
-    color: #b7a7ff;
-}
+.share-section span { color: #b7a7ff; }
 .bio-block {
     background: #222233cc;
     border-radius: 14px;
@@ -350,9 +320,8 @@ nav a:hover::after, nav a.active::after {
     text-decoration: none;
     transition: color 0.2s;
 }
-.contact-social a:hover {
-    color: #ffe766;
-}
+.contact-social a:hover { color: #ffe766; }
+
 .footer {
     text-align: center;
     padding: 20px;
