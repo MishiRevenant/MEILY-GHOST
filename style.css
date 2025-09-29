@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@400;700&family=IM+Fell+English+SC&display=swap');
+
+body {
+    background: radial-gradient(ellipse at top, #23253b 60%, #131224 100%);
+    color: #e3e3e3;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    margin-left: 60px;
+    transition: margin-left 0.3s;
+}
+
+body.sidebar-expanded {
+    margin-left: 180px;
+}
+header {
+    text-align: center;
+    padding: 30px 0 10px 0;
+}
+header img {
+    width: 140px;
+    border-radius: 50%;
+    border: 5px double #6045d3;
+    box-shadow: 0 0 35px #785ae0bb;
+    margin-bottom: 10px;
+    background: #191927;
+    object-fit: cover;
+    animation: coraline-glow 2.5s ease-in-out infinite alternate;
+}
+@keyframes coraline-glow {
+    0% { box-shadow: 0 0 20px #785ae099;}
+    100% { box-shadow: 0 0 40px #8a6af3ff;}
+}
+h1, .intro-coraline {
+    font-family: 'IM Fell English SC', 'Indie Flower', cursive;
+    letter-spacing: 2px;
+    color: #ecd7fb;
+    text-shadow: 2px 2px 6px #4d3456aa;
+    transition:  color 1.5s;
+}
+
+h1:hover {
+    
+    color: #ffe766;
+    text-shadow: 0 0 5px #ffe76677;
+    
+}
+p, .intro-coraline {
+    font-family: 'IM Fell English SC', 'Indie Flower', cursive;
+    letter-spacing: 2px;
+    color: #ecd7fb;
+    text-shadow: 2px 2px 6px #4d3456aa;
+    transition:  color 1.5s;
+}
+
+p:hover {
+    
+    color: #ffe766;
+    text-shadow: 0 0 5px #ffe76677;
+    
+}
+nav {
+    text-align: center;
+    background: #23213a88;
+    padding: 10px 0;
+    margin-bottom: 32px;
+    border-bottom: 2px dotted #7a5dcf;
+}
+nav a {
+    margin: 0 18px;
+    color: #b7a7ff;
+    text-decoration: none;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    letter-spacing: 1px;
+    transition: color 0.25s;
+    position: relative;
+}
+nav a:hover, nav a.active {
+    color: #ffe766;
+    text-shadow: 0 0 5px #ffe76677;
+}
+nav a::after {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 0;
+    height: 2px;
+    background: #ffe766;
+    transition: width 0.3s;
+}
+nav a:hover::after, nav a.active::after {
+    width: 50%;
+}
+
+/* Barra lateral con iconos */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 60px;
+    background: #23213a88;
+    border-right: 2px dotted #7a5dcf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    gap: 10px;
+    transition: width 0.3s;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.sidebar.expanded {
+    width: 180px;
+}
+
+.sidebar a {
+    width: 100%;
+    color: #b7a7ff;
+    text-decoration: none;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: #6045d3;
+    color: #ffe766;
+}
+
+.sidebar span {
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sidebar.expanded span {
+    opacity: 1;
+}
+.slider-coraline {
+    position: relative;
+    width: 90vw;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #3c2b70aa;
+    min-height: 400px;
+}
+.slide {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.slide.active {
+    display: block;
+    animation: fadeIn 1s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+}
+.slide .caption {
+    position: absolute;
+    bottom: 18px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: rgba(30,21,57,0.62);
+    color: #ffe766;
+    font-family: 'Indie Flower', cursive;
+    font-size: 22px;
+    padding: 10px 0;
+    border-radius: 0 0 20px 20px;
+    letter-spacing: 1px;
+}
+#prev, #next {
+    position: absolute;
+    top: 40%;
+    font-size: 2.5em;
+    color: #ffe766;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    transition: color .2s;
+}
+#prev { left: 10px;}
+#next { right: 10px;}
+#prev:hover, #next:hover { color: #fff; }
+
+.main-section {
+    padding: 40px 2vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.product-card {
+    background-color: #222;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    display: inline-block;
+    min-width: 220px;
+    max-width: 300px;
+}
+.product-card:hover {
+    transform: translateY(-10px) scale(1.03) rotate(-1deg);
+    box-shadow: 0 0 20px #b7a7ff77;
+}
+.product-card img {
+    width: 100%;
+    border-radius: 15px;
+}
+.categories {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.cat-btn {
+    background: #191927;
+    color: #ffe766;
+    border: 2px solid #6045d3;
+    border-radius: 8px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 18px;
+    padding: 7px 18px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background .2s, color .2s, border .2s;
+}
+.cat-btn.active, .cat-btn:hover {
+    background: #6045d3;
+    color: #fff;
+    border: 2px solid #ffe766;
+}
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+    width: 100%;
+}
+.cat-label {
+    color: #ffe766;
+    font-size: 15px;
+    font-family: 'Indie Flower', cursive;
+    margin-top: 5px;
+}
+.inspo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+.inspo-grid img {
+    border-radius: 15px;
+    box-shadow: 0 0 12px #6045d366;
+}
+.share-section {
+    background: #19192799;
+    border-radius: 12px;
+    padding: 20px;
+    font-family: 'Indie Flower', cursive;
+    text-align: center;
+    color: #ffe766;
+    font-size: 18px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+.share-section span {
+    color: #b7a7ff;
+}
+.bio-block {
+    background: #222233cc;
+    border-radius: 14px;
+    padding: 24px 20px;
+    box-shadow: 0 0 12px #6045d366;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    max-width: 750px;
+    margin: 0 auto;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 380px;
+    margin: 0 auto 24px auto;
+}
+.contact-form input, .contact-form textarea {
+    background: #2e2857;
+    border: 1.5px solid #b7a7ff;
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 12px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    transition: border 0.2s;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border: 2px solid #ffe766;
+}
+.contact-form button {
+    background: #6045d3;
+    color: #ffe766;
+    font-family: 'Indie Flower', cursive;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.contact-form button:hover {
+    background: #ffe766;
+    color: #6045d3;
+}
+.contact-social {
+    text-align: center;
+    margin-top: 18px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 17px;
+}
+.contact-social a {
+    color: #b7a7ff;
+    margin: 0 16px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.contact-social a:hover {
+    color: #ffe766;
+}
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    font-family: 'Indie Flower', cursive;
+    color: #888;
+    font-size: 20px;
+}
+@media (max-width: 800px) {
+    .main-section, .products-grid, .inspo-grid { grid-template-columns: 1fr; }
+    header img { width: 100px; }
+}
